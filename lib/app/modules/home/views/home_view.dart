@@ -5,7 +5,6 @@ import 'package:finsire_task1/app/cost/app_theme.dart';
 import 'package:finsire_task1/app/modules/home/views/widgets/app_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {

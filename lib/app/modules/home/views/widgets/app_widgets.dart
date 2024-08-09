@@ -2,8 +2,10 @@
 
 import 'package:finsire_task1/app/cost/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../cost/app_images.dart';
+import '../../controllers/home_controller.dart';
 
 class RoundedButton extends StatelessWidget {
   final IconData icon;
@@ -185,76 +187,79 @@ class ProgressIndicatorWithAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Stack(
+    return GetBuilder(builder: (HomeController _) {
+        return Column(
           children: [
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 8,
-              decoration: BoxDecoration(
-                color: Colors.grey[300],
-                borderRadius: BorderRadius.circular(4),
-              ),
-            ),
-            Align(
-              alignment: Alignment.center,
-              child: Container(
-                width: 4,
-                height: 15,
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(0.5),
+            Stack(
+              children: [
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[300],
+                    borderRadius: BorderRadius.circular(4),
+                  ),
                 ),
-              ),
-            ),
-            Container(
-              width: progress / total * MediaQuery.of(context).size.width,
-              height: 8,
-              decoration: BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.circular(4),
-              ),
-            ),
-          ],
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            buildAvatar(num: '1'),
-            Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: buildAvatar(num: '2', gender: 'men'),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: buildAvatar(num: '2'),
-            ),
-            Align(
-                alignment: Alignment.center,
-                child: buildAvatar(num: '3', gender: 'men')),
-            Padding(
-              padding: const EdgeInsets.only(left: 10),
-              child: SizedBox(
-                width: MediaQuery.sizeOf(context).width * 0.3 / 2.5,
-                child: Stack(
-                  children: [
-                    buildAvatar(num: '7'),
-                    Positioned(
-                      left: 15,
-                      child: buildAvatar(num: '4'),
+                Align(
+                  alignment: Alignment.center,
+                  child: Container(
+                    width: 4,
+                    height: 15,
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(0.5),
                     ),
-                  ],
+                  ),
                 ),
-              ),
+                Container(
+                  width: progress / total * MediaQuery.of(context).size.width,
+                  height: 8,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 15),
-              child: buildAvatar(num: '11', gender: 'men'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                buildAvatar(num: '1'),
+                Padding(
+                  padding: const EdgeInsets.only(left: 30),
+                  child: buildAvatar(num: '2', gender: 'men'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 30),
+                  child: buildAvatar(num: '2'),
+                ),
+                Align(
+                    alignment: Alignment.center,
+                    child: buildAvatar(num: '3', gender: 'men')),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: SizedBox(
+                    width: MediaQuery.sizeOf(context).width * 0.3 / 2.5,
+                    child: Stack(
+                      children: [
+                        buildAvatar(num: '7'),
+                        Positioned(
+                          left: 15,
+                          child: buildAvatar(num: '4'),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15),
+                  child: buildAvatar(num: '11', gender: 'men'),
+                ),
+              ],
             ),
           ],
-        ),
-      ],
+        );
+      }
     );
   }
 }
